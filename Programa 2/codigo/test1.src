@@ -1,0 +1,255 @@
+//comentario
+    
+linea;
+			
+linea; 
+linea;		
+             
+/* otro comentario */
+
+	linea;
+ 
+/* comentario de varias lineas
+   segunda parte del comentario
+   tercera parte... en esta parte se incluye una etiqueta que no se debe contar: //&m porque es comentario */    
+
+//esta parte es nueva (added)
+//&p-Banco
+class Banco
+	{
+	 linea;
+	 linea;	
+	 
+	 //&i
+	 //item
+	function initialize() {
+	  var content = document.getElementById('content');
+	  //Setting the text in the div.
+	  content.innerHTML = '<div id="text">Hola, me alegro mucho de verte.<\/div><div id="translation"/>';
+
+	  //Grabbing the text to translate
+	  var text = document.getElementById("text").innerHTML;
+
+	  //Translate from Spanish to English, and have the callback of the request
+	  //put the resulting translation in the "translation" div.
+	  //Note: by putting in an empty string for the source language ('es') then the translation
+	  //will auto-detect the source language.
+	  google.language.translate(text, 'es', 'en', function(result) {
+		var translated = document.getElementById("translation");
+		if (result.translation) {
+		  translated.innerHTML = "Cuando la etiqueta esta en un string //&m tampoco se debe contar";
+		}
+	  });
+	}
+
+	//&i
+	function onLoad() {
+	  var content = document.getElementById('content');
+	  //Create the HTML for out text area
+	  content.innerHTML = '<div><i>(Scroll down)</i> ' +
+						  'You can click the Show/Hide button enable/disable' +
+						  ' the Virtual Keyboard.</div>' +
+						  '<input type="button" onclick="toggleVisible()" ' +
+						  'id="btVisible" value="Hide"></input><br/>' +
+						  '<textarea id="t1" cols="100" rows="5"></textarea>';
+
+	  kbd = new google.elements.keyboard.Keyboard(
+		  [google.elements.keyboard.LayoutCode.THAI],
+		  ['t1']);
+	}
+
+	//&i
+	function toggleVisible() {
+	  var button = document.getElementById('btVisible');
+	  if (kbd.isVisible()) {
+		kbd.setVisible(false);
+		document.getElementById('btVisible').value = 'Show';
+	  } else {
+		kbd.setVisible(true);
+		document.getElementById('btVisible').value = 'Hide';
+	  }
+	}
+}
+
+//&p-Cuenta
+//&b=38
+//esta parte es base
+class Cuenta
+{
+  declara;
+  declara;
+  declara;
+  
+  //&i
+		  //Obtain a reference to the 'content' div
+		var content = document.getElementById('content');
+
+		//Create the blogger service object
+		var bloggerService =
+			new google.gdata.blogger.BloggerService('com.appspot.interactivesampler');
+
+		//The default "metafeed" feed is used to retrieve a list of blogs for a
+		//particular logged-in user.
+		//
+		//The ID included in this URI can be retrieved from the <link rel="me">
+		//element in the Blog's HTML source
+		var feedUri = 'http://www.blogger.com/feeds/17839063281282724568/blogs';
+
+		//The callback method invoked when getBlogFeed() returns feed data
+		var handleBlogFeed = function(blogFeedRoot) {
+
+		  //Display Blogger Profile data
+		  var author = blogFeedRoot.feed.getAuthors();
+		  var authorName = author[0].getName().getValue();
+		  var authorUri = author[0].getUri().getValue();
+
+		  //This variable will buffer HTML output until execution is complete
+		  var html = '<h1>Blogger User</h1>'
+			   + '<h2>Profile Information</h2>'
+			   + '<dl>'
+			   + '<dt>Profile Name:</dt>'
+			   + '<dd>' + authorName + '</dd>'
+			   + '<dt>Profile Name:</dt>'
+			   + '<dd><a href="' + authorUri + '">' + authorUri + '</a></dd>';
+
+		  //Fetch blogs associated with this Blogger Profile
+		  html += '<h2>Blog List</h2>';
+		  var blogEntries = blogFeedRoot.feed.getEntries();
+
+		  //Has the user created any blogs?
+		  if(!blogEntries.length) {
+			html += '<p>First <a href="http://www.blogger.com" '
+				  + 'target="_blank">create a blog</a>.</p>';
+		  } else {
+			//Print list of blogs
+			html += '<table rules="groups">'
+				  + '<thead><tr>'
+				  + '<th>Blog Name/Link</th><th>Last Updated</th>'
+				  + '</tr></thead>'
+				  + '<tbody>';
+
+			for (var i = 0, blogEntry; blogEntry = blogEntries[i]; i++) {
+			  //&d=1
+			  var blogURL = blogEntry.getHtmlLink().getHref(); //&m		
+			  var blogUpdated = blogEntry.getUpdated().getValue().getDate();
+			  html += '<tr>'
+					+ '<td><a href="' + blogURL + '" target="_blank">'
+					+ blogTitle
+					+ '</a></td>'
+					+ '<td>' + blogUpdated + '</td>'
+					+ '</tr>';
+			}
+			
+			//&d=10
+			
+			html += '</tbody>'
+				  + '</table>'; //&m    
+		  };
+
+		  //Output buffered HTML and clear 'Loading...' message
+		  //&d=1
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  
+		};
+
+		//Error handler called when getBlogFeed() produces an error
+		var handleError = function(error) {
+		  content.innerHTML = '<pre>' + error + '</pre>';
+		};
+
+		//Submit the request using the blogger service object
+		bloggerService.getBlogFeed(feedUri, handleBlogFeed, handleError);
+
+	//&i
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+
+//&p-Cliente
+class Cliente
+		  linea;
+//&b=21
+		  linea;
+		  linea; //&m
+		  linea;
+		  linea;
+
+	  //&i
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  
+	//&i		
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea; //&m
+		  linea; //&m
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+
+	//&i  
+		  linea;
+		  linea;
+		  linea;
+		  //&d=2
+		  linea;
+		  linea;
+		  linea; //&m
+
+	//&i	
+		  linea;
+		  linea;
+		  //&d=8  
+		  linea;
+		  linea;
+		  linea; //&m	
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
