@@ -1,12 +1,10 @@
 PARTES BASE:
-   LectorDeArchivo:  T=110, I=3, B=83, D=0, M=0, A=27
-   Programa1:  T=21, I=1, B=20, D=1, M=1, A=2
+   Programa1:  T=35, I=1, B=21, D=13, M=1, A=27
 --------------------------------------------------------------------
 PARTES NUEVAS:
-   Correlacion:  T=56, I=2
+   CalculadorE:  T=31, I=3
+   CalculadorP:  T=54, I=4
 --------------------------------------------------------------------
 PARTES REUSADAS:
-   Parte:  T=54, I=2, B=54
-   OrdenadorDeArchivo:  T=80, I=3, B=80
 --------------------------------------------------------------------
-Total de LDC: 321
+Total de LDC: 120

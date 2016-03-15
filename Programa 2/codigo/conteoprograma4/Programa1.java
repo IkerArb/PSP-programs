@@ -1,0 +1,100 @@
+/**
+ * Programa1
+ *
+ * Clase principal del Programa1 del PSP que ayuda a leer las líneas de información y en blanco de distintos
+ * archivos y las ordena por cantidad de líneas de información de maner ascendente, al final imprime este orden
+ *
+ * Ahora se reutiliza la clase del Programa1 para el Programa 4 y se utiliza para sacar la integral de simpson
+ *
+ * @author Iker Arbulu Lozano   A01190690
+ * @date 15/04/2016
+ * @version 3.0
+ */
+//&p-Programa1
+//&b=21
+import java.io.*;
+import java.util.regex.*;
+
+public class Programa1 {
+  //&i
+  public static void main(String []args){
+
+    //Se crea el objeto de la clase BufferedReader para leer el input del usuario
+    try (BufferedReader brInput = new BufferedReader(new InputStreamReader(System.in))){
+
+      //&d=5
+
+    	//Se crea la variable para hacer el calculo e impresion de P con precision de E
+    	CalculadorE ceCalculadorE;
+
+    	//Se crea el flotante para leer el input de X del usuario
+    	double dX = 0;
+
+    	//Se crea el entero para leer los DOF del usuario
+    	int iDof = 0;
+
+    	//Se crea la variable para recibir los inputs en forma de string
+    	String sCurrentLine;
+
+        //Pido el ingreso de la X
+        System.out.println("Dame la X:");
+        //Recibe la X de entrada
+        sCurrentLine = brInput.readLine();//&m
+        //Revisa que lo que haya recibido cumpla con el formato de un flotante
+        if(Pattern.matches("\\d+(\\.\\d+)?", sCurrentLine)){
+        	//Si estos caracteres representan un flotante mayor o igual a 0
+        	if(Double.parseDouble(sCurrentLine)>=0){
+        		//Asignalo a la variable que maneja la entrada de X
+        		dX = Double.parseDouble(sCurrentLine);
+        	}
+        	//Si no
+        	else{
+        		//Error en la entrada, salgamos
+        		System.out.println("X incorrecta");
+        		System.exit(0);
+        	}
+        }
+        //Si no
+        else{
+        	//Error en la entrada, salgamos
+        	System.out.println("X incorrecta");
+    		System.exit(0);
+        }
+
+      //Pido el ingreso de los Dof
+        System.out.println("Dame los DOF:");
+        //Recibe los Dof de entrada
+        sCurrentLine = brInput.readLine();
+        //Revisa que lo que haya recibido cumpla con el formato de un entero
+        if(Pattern.matches("\\d+", sCurrentLine)){
+        	//Si estos caracteres representan un entero mayor a 0
+        	if(Integer.parseInt(sCurrentLine)>0){
+        		//Asignalo a la variable que maneja los dof
+        		iDof = Integer.parseInt(sCurrentLine);
+        	}
+        	//Si no
+        	else{
+        		//Error en la entrada, salgamos
+        		System.out.println("DOF incorrectos");
+        		System.exit(0);
+        	}
+        }
+        //Si no
+        else{
+        	//Error en la entrada, salgamos
+        	System.out.println("DOF incorrectos");
+    		System.exit(0);
+        }
+
+        //Creamos el objeto de CalculadoraE
+        ceCalculadorE = new CalculadorE(dX,iDof);
+
+        //Mandamos a imprimir
+        ceCalculadorE.print();
+        //&d=8
+
+    }catch(IOException e){
+      System.out.println("Couldn't open BufferReader"+e);
+    }
+  }
+}
