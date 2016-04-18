@@ -13,7 +13,7 @@
  */
 
 //&p-LectorDeArchivo
-//&b=83
+//&b=110
 import java.io.*;
 import java.util.regex.*;
 
@@ -290,8 +290,13 @@ public class LectorDeArchivo{
 	    String sCurrentLine;
 
 	    if((sCurrentLine = brLector.readLine()) != null){
-	    	if(Pattern.matches("\\d+", sCurrentLine)){
-	    		coCalculador.setxk(Float.parseFloat(sCurrentLine.trim()));
+	    	if(Pattern.matches("\\d+(\\.\\d+)?", sCurrentLine)){//&m
+          if (Float.parseFloat(sCurrentLine.trim()) >= 0){
+            coCalculador.setxk(Float.parseFloat(sCurrentLine.trim()));
+          }
+          else{
+            System.out.println("Error en la entrada");
+          }
 	    	}
 	    	else{
 	    		System.out.println("Error en la entrada");
@@ -305,7 +310,12 @@ public class LectorDeArchivo{
 	      //Comienza la secuencia de ifs para checar las expresiones regulares
 	        //Luego se revisa si se abrirá comentario de línea múltiple
 	        if(Pattern.matches("\\d+(\\.\\d+)?,\\d+(\\.\\d+)?",sCurrentLine)){
-	        	coCalculador.pareja(Float.parseFloat(sCurrentLine.substring(0,sCurrentLine.indexOf(",")).trim()),Float.parseFloat(sCurrentLine.substring(sCurrentLine.indexOf(",")+1).trim()));
+            if(Float.parseFloat(sCurrentLine.substring(0,sCurrentLine.indexOf(",")).trim())>=0 && Float.parseFloat(sCurrentLine.substring(sCurrentLine.indexOf(",")+1).trim())>=0){
+	        	  coCalculador.pareja(Float.parseFloat(sCurrentLine.substring(0,sCurrentLine.indexOf(",")).trim()),Float.parseFloat(sCurrentLine.substring(sCurrentLine.indexOf(",")+1).trim()));
+            }
+            else{
+              System.out.println("Error en la entrada");
+            }
 	        }
 	        else{
 	        	System.out.println("Error en la entrada");

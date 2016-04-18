@@ -1,0 +1,15 @@
+PARTES BASE:
+   CalculadorP:  T=47, I=4, B=47, D=0, M=1, A=0
+   CalculadorX:  T=42, I=3, B=40, D=0, M=0, A=2
+   Correlacion:  T=103, I=5, B=56, D=0, M=0, A=47
+   LectorDeArchivo:  T=116, I=3, B=110, D=0, M=1, A=6
+--------------------------------------------------------------------
+PARTES NUEVAS:
+--------------------------------------------------------------------
+PARTES REUSADAS:
+   CalculadorE:  T=65, I=5, B=65
+   OrdenadorDeArchivo:  T=80, I=3, B=80
+   Parte:  T=54, I=2, B=54
+   Programa1:  T=21, I=1, B=21
+--------------------------------------------------------------------
+Total de LDC: 528
